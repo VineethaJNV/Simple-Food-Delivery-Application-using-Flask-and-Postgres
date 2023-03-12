@@ -1,0 +1,39 @@
+<header>
+<h1 style = "text-align: center;">Varieties Available</h1>
+</header>
+<style>
+    body {
+background-image: url('https://res.allmacwallpaper.com/get/iMac-21-inch-wallpapers/Tasty-food-1920x1080/3709-9.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+}
+    ul{
+            list-style-type:none;
+            text-align: center;
+        }
+        div{
+            text-align: center;
+        }
+        div{
+            text-align: center;
+        }
+</style>
+<ul>
+    <li>{{varity.description}}</li>
+</ul>
+<h3 style = "text-align: center;">Order food</h3>
+        <form action = "/place/order/{{id_num.menu_id}}" method = "POST">
+            <div>
+                food name:<input type = "text" name = "placed-order">
+            </div>
+            <br>
+            <div>
+            <input type = "submit" value = "Order food">
+        </div>
+        </form>
+        {% for category, message in get_flashed_messages(
+            with_categories = true
+        )%}
+        <div style ="color:{{category}}">{{message}}</div>
+        {% endfor %}  

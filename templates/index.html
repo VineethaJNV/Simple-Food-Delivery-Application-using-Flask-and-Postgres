@@ -1,0 +1,48 @@
+<html>
+    
+        <style>body {
+
+            background-image: url('https://c4.wallpaperflare.com/wallpaper/725/705/131/best-delicious-food-wallpaper-preview.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        ul{
+            list-style-type:none;
+            text-align: center;
+        }
+        div{
+            text-align: center;
+        }
+        div{
+            text-align: center;
+        }
+    </style> 
+    <body>
+        <header>
+        <h1 style = "text-align: center;"><b><i></i><u>Bhojan - Food Delivery Application</u></b></h1>
+        <h2 style = "text-align: center;">List of Available Food Items</h2>
+    </header>
+        <ul>
+            {% for menus in menu_details %}
+            <li><a href="/menu/{{menus.menu_id}}/varieties"><big>{{menus.menu_id}} {{menus.food_items}}</big></a></li>
+            {% endfor %}
+        </ul> 
+        <h3 style = "text-align: center;">Add food</h3>
+        <form action = "/add/menu" method = "POST">
+            <div>
+                food name:<input type = "text" name = "menu-title">
+            </div>
+            <br>
+            <div>
+            <input type = "submit" value = "Add food">
+        </div>
+        </form>
+        {% for category, message in get_flashed_messages(
+            with_categories = true
+        )%}
+        <div style ="color: green">{{message}}</div>
+        {% endfor %}
+    
+    </body>
+</html>
